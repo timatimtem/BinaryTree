@@ -1,3 +1,4 @@
+import java.util.Queue;
 
 /**
  * Created by Tymur on 02.09.2016.
@@ -52,6 +53,21 @@ public class BinaryTreeNode<T extends Comparable<T>> {
             return true;
         }
         return false;
+    }
+    public T getRootNode(){
+        return this.data;
+    }
+
+    public void rcopy(BinaryTreeNode<T> current){
+       if (current.left != null){
+           this.add(current.left.data);
+           this.rcopy(current.left);
+       }
+       if (current.right != null){
+           this.add(current.right.data);
+           this.rcopy(current.right);
+       }
+
     }
 
     public BinaryTreeNode<T> remove(T data){

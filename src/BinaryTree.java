@@ -53,6 +53,17 @@ public class BinaryTree <T extends Comparable<T>> {
         }
     }
 
+
+    public BinaryTree recursiveCopy(){
+
+        BinaryTree<T> newTree = new BinaryTree<>();
+        newTree.add(this.root.getRootNode());
+        newTree.root.rcopy(root);
+
+        return newTree;
+
+    }
+
     public String toString(){
         return "[" + (root == null ? "" : root.toString()) + "]";
     }
