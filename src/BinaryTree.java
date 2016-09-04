@@ -53,7 +53,6 @@ public class BinaryTree <T extends Comparable<T>> {
         }
     }
 
-
     public BinaryTree recursiveCopy(){
 
         BinaryTree<T> newTree = new BinaryTree<>();
@@ -62,6 +61,20 @@ public class BinaryTree <T extends Comparable<T>> {
 
         return newTree;
 
+    }
+
+    public void preOrderedPrint(){
+        root.preOrderedPrint();
+    }
+
+    public void inOrderedPrint(){
+
+        root.inOrderedPrint();
+
+    }
+
+    public void postOrderedPrint(){
+        root.postOrderedPrint();
     }
 
     public String toString(){

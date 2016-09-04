@@ -189,4 +189,34 @@ public class BinaryTreeNode<T extends Comparable<T>> {
         }
         return message;
     }
+
+
+    /**
+     * Обход бинарных деревьев
+     * последовательная обработка (просмотр, изменение и т.п.) всех узлов дерева, при котором каждый узел
+     * обрабатывается строго один раз. При этом получается линейная расстановка узлов дерева
+     *
+     */
+    public void preOrderedPrint() {
+
+        // вершина – левое поддерево – правое поддерево
+        System.out.println(data);
+        if (left != null) left.preOrderedPrint();
+        if (right != null) right.preOrderedPrint();
+
+    }
+
+    public void inOrderedPrint() {
+        // in ordered  левое поддерево – вершина – правое поддерево
+        if (left != null) left.inOrderedPrint();
+        System.out.print(this.data + ", ");
+        if (right != null) right.inOrderedPrint();
+    }
+
+    public void postOrderedPrint(){
+        //post-ordered левое поддерево – правое поддерево – вершина
+        if (left != null) left.postOrderedPrint();
+        if (right != null) right.postOrderedPrint();
+        System.out.print(this.data + ", ");
+    }
 }
