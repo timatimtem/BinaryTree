@@ -1,9 +1,3 @@
-import java.util.Queue;
-
-/**
- * Created by Tymur on 02.09.2016.
- */
-
 
 public class BinaryTreeNode<T extends Comparable<T>> {
 
