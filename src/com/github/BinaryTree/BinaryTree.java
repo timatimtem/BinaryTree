@@ -1,8 +1,4 @@
-
-/**
- * Created by Tymur on 02.09.2016.
- */
-
+package com.github.BinaryTree;
 
 public class BinaryTree <T extends Comparable<T>> {
 
@@ -57,7 +53,7 @@ public class BinaryTree <T extends Comparable<T>> {
 
         BinaryTree<T> newTree = new BinaryTree<>();
         newTree.add(this.root.getRootNode());
-        newTree.root.rcopy(root);
+        newTree.root.copy(root);
 
         return newTree;
 
@@ -66,7 +62,6 @@ public class BinaryTree <T extends Comparable<T>> {
     public void preOrderedPrint(){
         root.preOrderedPrint();
     }
-
     public void inOrderedPrint(){
 
         root.inOrderedPrint();

@@ -1,3 +1,4 @@
+package com.github.BinaryTree;
 
 public class BinaryTreeNode<T extends Comparable<T>> {
 
@@ -10,18 +11,19 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 
 
     /**
-     * Insert value
+     * Insert value into current root
      * @param data
-     * @return
+     * @return true if insert was correct otherwise false
      */
     public boolean add(T data){
 
+        // No value duplicate in tree.
         if (contains(data)){
             return false;
         }
 
         if (this.data.compareTo(data) > 0) {
-            // new data is less then root, add to left
+            // new data is less then root? add to left
             if (left == null) {
                 this.left = new BinaryTreeNode<>(data);
                 System.out.println(data + " < " + this.data);
@@ -52,14 +54,20 @@ public class BinaryTreeNode<T extends Comparable<T>> {
         return this.data;
     }
 
-    public void rcopy(BinaryTreeNode<T> current){
+
+    /**
+     * This is the method which copies values
+     * of the exist tree in root of new tree.
+     * @param current is the root of old tree
+     */
+    public void copy(BinaryTreeNode<T> current){
        if (current.left != null){
            this.add(current.left.data);
-           this.rcopy(current.left);
+           this.copy(current.left);
        }
        if (current.right != null){
            this.add(current.right.data);
-           this.rcopy(current.right);
+           this.copy(current.right);
        }
 
     }
@@ -97,7 +105,7 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 
 
     /**
-     * Returns the smallest key in root
+     * Returns the smallest key in tree
      * @return
      */
     private T findMin(){
@@ -110,13 +118,12 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 
 
     /**
-     * check does this tree contain the given param
-     *
+     * Check does this tree contain the given param
      * @param data searched arg
-     *
-     * @return (true) if elem is found ,otherwise (false)
+     * @return true if elem is found ,otherwise false
      */
     public boolean contains(T data) {
+
         if (this.data.compareTo(data) == 0){
             return true;
         } else
@@ -132,7 +139,7 @@ public class BinaryTreeNode<T extends Comparable<T>> {
     }
 
     /**
-     * Count nodes
+     * Counts nodes
      * @return number of nodes
      */
     public int size(){
@@ -171,25 +178,10 @@ public class BinaryTreeNode<T extends Comparable<T>> {
         }
     }
 
-
-    public String toString() {
-        String message = "";
-        if (left != null){
-            message += left.toString() + ", ";
-        }
-        message += data;
-        if (right != null){
-            message += ", " + right.toString();
-        }
-        return message;
-    }
-
-
     /**
      * Обход бинарных деревьев
      * последовательная обработка (просмотр, изменение и т.п.) всех узлов дерева, при котором каждый узел
      * обрабатывается строго один раз. При этом получается линейная расстановка узлов дерева
-     *
      */
     public void preOrderedPrint() {
 
@@ -213,4 +205,17 @@ public class BinaryTreeNode<T extends Comparable<T>> {
         if (right != null) right.postOrderedPrint();
         System.out.print(this.data + ", ");
     }
+
+    public String toString() {
+        String message = "";
+        if (left != null){
+            message += left.toString() + ", ";
+        }
+        message += data;
+        if (right != null){
+            message += ", " + right.toString();
+        }
+        return message;
+    }
+
 }

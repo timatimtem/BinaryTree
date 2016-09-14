@@ -1,6 +1,6 @@
-/**
- * Created by Тимур on 03.09.2016.
- */
+package com.github.BinaryTree;
+
+
 public class Main {
     public static void main(String[] args) {
         BinaryTree<Integer> tree = new BinaryTree<>();
